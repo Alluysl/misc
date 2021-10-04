@@ -44,11 +44,17 @@ char* read_line(FILE* f){
 	if (fgets(res, size, f) == NULL) /* happens when an error occurs or when no characters were read but we're expecting at least one character */
 		ERROR_HANDLING_PAIR_FILE
 	
-	{ /* remove newline if was read */
+	{ /* remove newline (and carriage return on Windows) if was read */
 		char* nl;
 		
 		if ((nl = strrchr(res, '\n')) != NULL)
 			*nl = '\0';
+
+#if defined(_WIN32) || defined(_WIN64)
+		if ((nl = strrchr(res, '\r')) != NULL)
+			*nl = '\0';
+#endif
+		
 	}
 	
 	return res;
@@ -86,7 +92,7 @@ intStringPair get_pair_from_line(char* line){
 
 intStringPairArray get_pairs(intStringPairArray arr, const char* const pairsFilePath){
 	
-	FILE* f = fopen(pairsFilePath, "r");
+	FILE* f = fopen(pairsFilePath, "rb");
 	char* readLine;
 	
 	if (f == NULL){

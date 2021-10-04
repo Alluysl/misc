@@ -1,0 +1,4 @@
+3 Fizz
+5 Buzz
+10 Ten!
+5 Baz

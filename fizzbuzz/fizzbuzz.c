@@ -110,7 +110,7 @@ intStringPairArray get_pairs(intStringPairArray arr, const char* pairsFilePath){
 	return arr;
 }
 
-char check_print_special(int counter, int modulo, const char* name){
+int check_print_special(int counter, int modulo, const char* name){
 	
 	if (!modulo || counter % modulo)
 		return 0;

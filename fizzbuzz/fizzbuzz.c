@@ -3,16 +3,20 @@
 #include <string.h>
 #include "arrayinttostring.h"
 
+
 #define PAIRS_FILE_PATH "pairs.txt"
+
 
 /* Rules of the game:
    Count from 1 to the specified value (user input)
    If the value is a multiple of 3 say Fizz, of 5 say Buzz,
    of 15 say FizzBuzz, else say the number */
 
+
 #define ERROR_HANDLING_PAIR_FILE \
 	{ perror("Error handling pairs file");\
 	exit(EXIT_FAILURE); }
+
 
 char* read_line(FILE* f){
 	
@@ -77,6 +81,7 @@ char* read_line(FILE* f){
 	return res;
 }
 
+
 intStringPair get_pair_from_line(char* line){
 	
 	intStringPair pair;
@@ -112,6 +117,7 @@ intStringPair get_pair_from_line(char* line){
 	return pair;
 }
 
+
 intStringPairArray get_pairs(
 	intStringPairArray arr, const char* pairsFilePath){
 	
@@ -134,6 +140,7 @@ intStringPairArray get_pairs(
 	return arr;
 }
 
+
 int check_print_special(int counter, int modulo, const char* name){
 	
 	if (!modulo || counter % modulo)
@@ -142,6 +149,7 @@ int check_print_special(int counter, int modulo, const char* name){
 	printf("%s", name);
 	return 1;
 }
+
 
 int main(){
 	int n; /* upper bound to count to */

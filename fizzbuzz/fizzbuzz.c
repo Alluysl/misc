@@ -90,7 +90,7 @@ intStringPair get_pair_from_line(char* line){
 	return pair;
 }
 
-intStringPairArray get_pairs(intStringPairArray arr, const char* const pairsFilePath){
+intStringPairArray get_pairs(intStringPairArray arr, const char* pairsFilePath){
 	
 	FILE* f = fopen(pairsFilePath, "rb");
 	char* readLine;
@@ -110,7 +110,7 @@ intStringPairArray get_pairs(intStringPairArray arr, const char* const pairsFile
 	return arr;
 }
 
-char check_print_special(const int counter, const int modulo, const char* const name){
+char check_print_special(int counter, int modulo, const char* name){
 	
 	if (!modulo || counter % modulo)
 		return 0;

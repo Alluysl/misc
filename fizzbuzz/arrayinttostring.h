@@ -15,6 +15,7 @@ typedef struct {
 } intStringPairArray;
 
 intStringPairArray intStringPairArray_new(size_t size);
-intStringPairArray intStringPairArray_append(intStringPairArray arr, intStringPair pair);
+intStringPairArray intStringPairArray_append(
+	intStringPairArray arr, intStringPair pair);
 
 #endif /* arrayinttostring_h_included */

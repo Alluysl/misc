@@ -12,7 +12,10 @@ intStringPairArray intStringPairArray_new(size_t size){
 	newArr.values = NULL;
 	if (size)
 		while (newArr.values == NULL){
-			if (++attempts == INTSTRINGPAIRARRAY_ALLOC_ATTEMPTS){ /* tests 0 == maxAttempts on first pass, 1 == maxAttempts on second pass, etc, so intended behavior */
+			if (++attempts == INTSTRINGPAIRARRAY_ALLOC_ATTEMPTS){
+			/* tests 0 == maxAttempts on first pass, */
+			/* 1 == maxAttempts on second pass, etc, */
+			/* so we get the intended behavior */
 				fprintf(stderr, "Couldn't allocate array.\n");
 				exit(EXIT_FAILURE);
 			}
@@ -22,7 +25,8 @@ intStringPairArray intStringPairArray_new(size_t size){
 	return newArr;
 }
 
-intStringPairArray intStringPairArray_append(intStringPairArray arr, intStringPair pair){
+intStringPairArray intStringPairArray_append(
+	intStringPairArray arr, intStringPair pair){
 	
 	if (arr.size == arr.maxSize){ /* need to expand array */
 		
@@ -35,8 +39,12 @@ intStringPairArray intStringPairArray_append(intStringPairArray arr, intStringPa
 			arr.maxSize = 1;
 		
 		while (res == NULL){
-			if (++attempts == INTSTRINGPAIRARRAY_ALLOC_ATTEMPTS){ /* tests 0 == maxAttempts on first pass, 1 == maxAttempts on second pass, etc, so intended behavior */
-				fprintf(stderr, "Couldn't re-allocate array.\n");
+			if (++attempts == INTSTRINGPAIRARRAY_ALLOC_ATTEMPTS){
+			/* tests 0 == maxAttempts on first pass, */
+			/* 1 == maxAttempts on second pass, etc, */
+			/* so we get the intended behavior */
+				fprintf(stderr,
+					"Couldn't re-allocate array.\n");
 				exit(EXIT_FAILURE);
 			}
 			res = realloc(arr.values, arr.maxSize * sizeof *res);

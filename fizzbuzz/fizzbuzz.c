@@ -98,8 +98,8 @@ intStringPair get_pair_from_line(char* line){
 	
 	/* Shift the string */
 	{
-		int i,
-		    diff; /* index of the substring to bring */
+		int i;
+		int diff; /* index of the substring to bring */
 			/* to the beginning of the string */
 		
 		for (diff = 0; line[diff] != ' '; ++diff);
@@ -152,8 +152,9 @@ int check_print_special(int counter, int modulo, const char* name){
 
 
 int main(){
+	
+	int i;
 	int n; /* upper bound to count to */
-	int i; /* counter */
 	
 	intStringPairArray specialValues =
 		get_pairs(intStringPairArray_new(2), PAIRS_FILE_PATH);
@@ -188,7 +189,6 @@ int main(){
 		else /* no text shown... */
 			printf("%d\n", i); /* ... print value and new line */
 	}
-	
 	
 	free(specialValues.values); /* free allocated memory */
 	

@@ -155,7 +155,8 @@ int main(){
 	int n; /* upper bound to count to */
 	int i; /* counter */
 	
-	intStringPairArray specialValues = get_pairs(intStringPairArray_new(2), PAIRS_FILE_PATH);
+	intStringPairArray specialValues =
+		get_pairs(intStringPairArray_new(2), PAIRS_FILE_PATH);
 	
 	printf("Number to count to: ");
 	while (fflush(stdout), /* make sure the line before is printed */
